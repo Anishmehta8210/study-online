@@ -15,3 +15,15 @@ export const GET = async (req,{params}) => {
         return NextResponse.json({"msg":e.message})
     }
 }
+
+export const DELETE = async (req,{params}) => {
+    
+    await Connect()
+    try{
+         await Topic.findByIdAndDelete(params.topicid)
+        return NextResponse.json({"msg":"Data Deleted Successfully"})
+    }
+    catch(e){
+        return NextResponse.json({"msg":e.message})
+    }
+}
