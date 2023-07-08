@@ -12,12 +12,7 @@ export default async function Home({params}) {
 
   return (
     <>
-    <div className="flex">
-      <div className="w-2/12">
-        <Side />
-      </div>
-      <div className="w-10/12">
-        <div className="p-5">
+    
         <TopicCard value={callingTopic.data}/>
 
         <div className="flex mt-5">
@@ -27,16 +22,14 @@ export default async function Home({params}) {
         <div className="grid grid-cols-4 gap-3">
             {
                 callingContent.data.map((value,key) => (
-                    <Link href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{value.content_title}</h5>
+                    <Link href={`/view/${value._id}`} class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{value.content_title}</h5>
 
                     </Link>
                     ))
             }
         </div>
-        </div>
-      </div>
-    </div>
+       
     </>
   )
 }

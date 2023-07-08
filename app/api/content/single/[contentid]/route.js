@@ -14,3 +14,15 @@ export const DELETE = async (req,{params}) => {
         return NextResponse.json({"msg":e.message})
     }
 }
+
+export const GET = async (req, {params}) => {
+    await Connect();
+    let data;
+    try{
+        data = await Content.findById(params.contentid);
+        return NextResponse.json({data})
+    }
+    catch(e){
+        return NextResponse.json({"msg":"something went wrong"});
+    }
+}
