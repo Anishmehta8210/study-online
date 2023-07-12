@@ -6,6 +6,12 @@ const UserSchema = new mongoose.Schema({
     email:{type:String},
     contact:{type:String},
     password:{type:String},
+    isVerified:{type:Boolean,default:false},
+    isAdmin:{type:Boolean,default:false},
+    forgetPasswordToken:String,
+    forgetPasswordTokenExpiry:Date,
+    verifyToken:String,
+    verifyTokenExpiry:Date,
 
 },
 {
@@ -13,4 +19,4 @@ const UserSchema = new mongoose.Schema({
 }
 )
 
-export default mongoose.models.User || mongoose.model("User",UserSchema)
+export default mongoose.models.User ||  mongoose.model("User",UserSchema)

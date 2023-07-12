@@ -9,8 +9,8 @@ const viewpage = async({params}) => {
     <div className='flex flex-1 flex-col gap-3'>
         <h1 className='text-4xl font-black'>{callingOneContent.data.content_title}</h1> 
         <div className="flex gap-5 text-xs">
-            <h6 className='text-slate-600'>Author: {callingOneContent.data.author}</h6>
-            <h6 className='text-slate-600'>Topic: {callingOneContent.data.topic_id}</h6>
+            <h6 className='text-slate-600'>Author: {callingOneContent.data.author.name}</h6>
+            <h6 className='text-slate-600'>Topic: {callingOneContent.data.topic_id.topic_title}</h6>
         </div>
         <div className="text-lg">
             <p  className='leading-8 text-justify'>{callingOneContent.data.content_text}</p>

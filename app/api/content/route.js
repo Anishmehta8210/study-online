@@ -1,12 +1,12 @@
 import Content from "@/app/models/Content";
 import Connect from "@/app/utils/Connect"
 import { NextResponse } from "next/server";
-
+// all calling api
 export const GET = async () => {
     await Connect();
     let data;
     try{
-        data =  await Content.find({});
+        data =  await Content.find({}).populate("author").populate("topic_id");
         return NextResponse.json({data});
     }
     catch(e){
